@@ -1,0 +1,34 @@
+    <!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  <div class="w3-container w3-text-grey" id="jeans">
+    <h1 class="w3-bar-item w3-text-grey w3-padding">
+      Waiting List to DR. {{doctor.user.lastName}} {{doctor.user.firstName}}
+    </h1>
+  </div>
+  <!--&nbsp;&nbsp;&nbsp;&nbsp;<input *ngIf="admin==true" placeholder="coca drink beer" type="text" #searchInput [(ngModel)]="smartsearch" /> <button *ngIf="admin==true" (click)="onSmartSearch()" class="w3-bar-item w3-button w3-padding">Smart Search</button>
+   &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Search By Name" #nameInput [(ngModel)]="name" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="Min Price" #priceInput [(ngModel)]="minPrice" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="Max Price" #priceInput [(ngModel)]="maxPrice" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="Min Quantity" #quantityInput [(ngModel)]="minQuantity" (input)="Quantity" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="Max Quantity" #quantityInput [(ngModel)]="maxQuantity" (input)="Quantity" />
+   <button (click)="onMultiSearch()" class="w3-bar-item w3-button w3-padding">Search</button>
+   <button *ngIf="admin==true" (click)="onCreate()" class="w3-bar-item w3-button w3-padding">Add Product</button>-->
+  <div class="w3-container">
+    <table class="w3-table w3-striped">
+      <tr>
+        <th><h4><b>patient</b></h4></th>
+        <th><h4><b>dateCome</b></h4></th>
+      </tr>
+      <tr *ngFor="let wait of doctor.waitingList">
+        <th>{{wait.patient.lastName}} {{wait.patient.firstName}}</th>
+        <th>{{wait.dateCome.getHours()}}:{{wait.dateCome.getMinutes()}}</th>
+        <th><button *ngIf="wait.patient.username == username && wait.getMassage == false" (click)="deleteApointment(wait, doctor._id,doctor.user.username)" class="w3-bar-item w3-button w3-padding">Canceling the appointment  </button></th>
+        <th><button *ngIf="tag == 'doctor'" (click)="finishMeeting(wait.patient._id)"  class="w3-bar-item w3-button w3-padding">finish a meeting</button></th>
+      </tr>
+      </table>
+</div>
+</div>

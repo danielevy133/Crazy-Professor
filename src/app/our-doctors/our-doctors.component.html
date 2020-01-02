@@ -1,0 +1,28 @@
+    <!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  <div class="w3-container w3-text-grey" id="jeans">
+    <h1 class="w3-bar-item w3-text-grey w3-padding">Our Doctors</h1>
+  </div>
+  <div class="w3-container">
+    <mat-slide-toggle (change)="onChange()">avilabilty</mat-slide-toggle>
+    <table class="w3-table w3-striped">
+      <tr>
+        <th><h4><b>First Name</b></h4></th>
+        <th><h4><b>Last Name</b></h4></th>
+      </tr>
+      <tr *ngFor="let doctor of doctors">
+        <th *ngIf="doctor.availability != checked || doctor.availability==true">{{ doctor.user.firstName }}</th>
+        <th *ngIf="doctor.availability != checked || doctor.availability==true">{{ doctor.user.lastName }}</th>
+        <th></th>
+        <th><button *ngIf="(doctor.availability != checked || doctor.availability==true) && user==true && tag == 'patient'" (click)="makeAnAppointment(doctor._id,doctor.user.username)" class="w3-bar-item w3-button w3-padding">Make an appointment</button></th>
+        <th><button *ngIf="(doctor.availability != checked || doctor.availability==true) && user==true && tag == 'patient' && doctor.availability == false" [routerLink]="['/waiting_list',doctor.user.username]" class="w3-bar-item w3-button w3-padding">Get Waiting List</button></th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+

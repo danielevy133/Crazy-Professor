@@ -1,0 +1,21 @@
+<footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+  <div class="w3-row-padding">
+    <div class="w3-col s4">
+      <h4>Sign In</h4>
+      <form action="/action_page.php" target="_blank">
+        <p><input #username class="w3-input w3-border" type="text" placeholder="username" name="username" required></p>
+        <p><input #password class="w3-input w3-border" type="password" placeholder="Password" name="Message" required></p>
+        <p><input #passwordconf class="w3-input w3-border" type="password" placeholder="Please re-enter your chosen passeord" name="Message" required></p>
+        <p>
+          <select #tag class="w3-input w3-border" data-style="btn-info" name="City" required>
+            <option value="doctor">Doctor</option>
+            <option value="patient">Patient </option>
+          </select>
+        </p>
+        <p><input #firstName class="w3-input w3-border" type="text" placeholder="firstName" name="firstName" required></p>
+        <p><input #lastName class="w3-input w3-border" type="text" placeholder="lastName" name="lastName" required></p>
+        <button (click)="ngSingIn(username,password,passwordconf,tag,firstName,lastName)" type="submit" class="w3-button w3-block w3-black">SignIn</button>
+      </form>
+    </div>
+  </div>
+</footer>

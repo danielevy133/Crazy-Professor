@@ -1,0 +1,13 @@
+<nav class="w3-sidebar w3-bar-block w3-white  " style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <h3 class="w3-wide"><b>{{ nameApp }} </b><img src={{pictureURL}} alt="logo" style="width:40%"></h3>
+
+  </div>
+
+  <button (click)="onHome()" class="w3-bar-item w3-button w3-padding">Home</button>
+  <button (click)="onDoctors()" class="w3-bar-item w3-button w3-padding">Our Doctors</button>
+  <button *ngIf="user==false" (click)="onSignIn()" class="w3-bar-item w3-button w3-padding">Sign In</button>
+  <button *ngIf="user==false" (click)="onLogin()" class="w3-bar-item w3-button w3-padding">Log In</button>
+  <button *ngIf="user==true" (click)="onLogOut()" class="w3-bar-item w3-button w3-padding">Log Out</button>
+  <button  *ngIf="user==true && tag=='doctor' " [routerLink]="['/waiting_list',doctor.username]"  class="w3-bar-item w3-button w3-padding">My Waiting List</button>
+</nav>
